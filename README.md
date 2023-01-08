@@ -44,6 +44,5 @@ A estrutura padrão desse código tem três dígitos, sendo o primeiro referente
 * Javascript.
 
 ## Captura de tela
-
-
+![Captura de tela de 2023-01-08 18-26-08](https://user-images.githubusercontent.com/105956403/211220529-fea20f09-e46c-4581-a992-3b49c489affb.png)
 Demonstração de um dado incorreto informado, tratado e retornado com o aviso personalizado para o usuário.

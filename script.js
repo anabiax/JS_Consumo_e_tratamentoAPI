@@ -50,19 +50,32 @@ async function buscaEndereco(cep) {
         var cidade = document.getElementById('cidade');
         var logradouro = document.getElementById('endereco');
         var estado = document.getElementById('estado');
+        var bairro = document.getElementById('bairro')
 
-        cidade.value = consultaCEPConvertida.localidade;
+        cidade.value = consultaCEPConvertida.localidade;  // esse último vem da API
         logradouro.value = consultaCEPConvertida.logradouro;
         estado.value = consultaCEPConvertida.uf;
+        bairro.value = consultaCEPConvertida.bairro;
 
         console.log(consultaCEPConvertida);
         return consultaCEPConvertida;
 
     } catch (erro) {
-        mensagemErro.innerHTML = `<p>CEP inválido. Tente novamente!</p>`
+        mensagemErro.innerHTML = `<p> CEP inválido. Tente novamente! </p>`
         console.log(erro);
     }
 }
 
 var cep = document.getElementById('cep');
 cep.addEventListener("focusout", () => buscaEndereco(cep.value));
+
+/*  
+
+NESSE CASO, as requisições iriam percorrer o que foi setado na função buscaEndereço ao mesmo tempo.
+let ceps = ['01001000','01001001'];
+let conjuntoCeps = ceps.map(valores => buscaEndereco(valores))   -> vai fazer um novo array com o que retornar da função p/ cada um dos valores da variável ceps
+Promisse.all(conjuntoCeps).then(respostas => console.log(respostas)) 
+
+vai resolver as promessas resolvidas em (valores)
+
+*/
